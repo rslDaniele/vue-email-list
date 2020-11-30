@@ -2,7 +2,8 @@ var app = new Vue({
   el: "#app",
   data: {
     titolo: "Generatore email casuali",
-    mail: [],
+    mail: '',
+    listaMail: []
   },
 
   mounted: function () {
@@ -10,8 +11,9 @@ var app = new Vue({
       axios
       .get('https://flynn.boolean.careers/exercises/api/random/mail')
       .then(risposta => {
-        this.mail = risposta.data.response;
-
+        console.log(risposta.data.response);
+        this.listaMail.push(risposta.data.response);
+        console.log(listaMail);
       })
     }
   }
